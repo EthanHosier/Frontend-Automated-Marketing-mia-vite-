@@ -1,12 +1,11 @@
 import { Button } from "@/components/button";
 import { Plus } from "lucide-react";
+import { Input } from "./components/input";
 
 const App = () => {
   return (
     <div className="flex w-screen h-screen items-center justify-center">
-      <Button variant="primary" icon size={"md"}>
-        <Plus />
-      </Button>
+      <Input placeholder="hello there" />
     </div>
   );
 };
