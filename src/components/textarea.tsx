@@ -29,7 +29,7 @@ export const Textarea: React.FC<TextareaProps> = ({ label }) => {
           id="floating-textarea"
           ref={textareaRef}
           onInput={adjustHeight}
-          className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden"
+          className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden"
           placeholder=" "
           rows={1} // Set initial rows to 1 to avoid extra space
         />

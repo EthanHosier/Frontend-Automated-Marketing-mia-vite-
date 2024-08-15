@@ -9,7 +9,7 @@ export const Input: React.FC<InputProps> = ({ label }) => {
         <input
           type="text"
           id="floating-input"
-          className="peer block w-full appearance-none bg-transparent px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 mt-1"
+          className="peer block w-full appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1"
           placeholder=" "
         />
         <label
