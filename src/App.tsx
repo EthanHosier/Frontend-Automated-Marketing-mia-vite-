@@ -1,9 +1,12 @@
-import React from "react";
+import { Button } from "@/components/button";
+import { Plus } from "lucide-react";
 
 const App = () => {
   return (
-    <div className="text-grayscaleText-negative bg-primary-surface-default">
-      idk
+    <div className="flex w-screen h-screen items-center justify-center">
+      <Button variant="primary" icon size={"md"}>
+        <Plus />
+      </Button>
     </div>
   );
 };

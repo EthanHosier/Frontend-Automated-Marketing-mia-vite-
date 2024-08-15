@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: white;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--primary-surface-default);
+    --primary-foreground: var(--grayscale-text-negative);
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -275,36 +275,6 @@
   }
 
   :root {
-    --h1-----bold: 49px;
-    --h1-----light: 49px;
-    --h1-----regular: 49px;
-    --h2---bold: 39px;
-    --h2---light: 39px;
-    --h2-----regular: 39px;
-    --h3---bold: 31px;
-    --h3-----light: 31px;
-    --h3-----regular: 31px;
-    --h4---bold: 25px;
-    --h4-----light: 25px;
-    --h4-----regular: 25px;
-    --headline-----bold: 20px;
-    --headline-----light: 20px;
-    --headline-----regular: 20px;
-    --body---bold: 16px;
-    --body---regular: 16px;
-    --body-----light: 16px;
-    --subtitle---bold: 13px;
-    --subtitle-----light: 13px;
-    --subtitle-----regular: 13px;
-    --caption-----bold: 11px;
-    --caption-----light: 11px;
-    --caption-----regular: 11px;
-    --footnote---bold: 10px;
-    --footnote---light: 10px;
-    --footnote---regular: 10px;
-  }
-
-  :root {
     font-family: "Inter", sans-serif;
   }
 }
@@ -316,4 +286,120 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.text-h1-bold {
+  @apply text-[49px] font-extrabold leading-[58.8px] font-inter;
+}
+
+.text-h1-light {
+  @apply text-[49px] font-normal leading-[58.8px] font-inter;
+}
+
+.text-h1-regular {
+  @apply text-[49px] font-normal leading-[58.8px] font-inter;
+}
+
+/* text-h2 styles */
+.text-h2-bold {
+  @apply text-[39px] font-extrabold leading-[46.8px] font-inter;
+}
+
+.text-h2-light {
+  @apply text-[39px] font-normal leading-[46.8px] font-inter;
+}
+
+.text-h2-regular {
+  @apply text-[39px] font-normal leading-[46.8px] font-inter;
+}
+
+/* text-h3 styles */
+.text-h3-bold {
+  @apply text-[31px] font-extrabold leading-[37.2px] font-inter;
+}
+
+.text-h3-light {
+  @apply text-[31px] font-light leading-[37.2px] font-inter;
+}
+
+.text-h3-regular {
+  @apply text-[31px] font-normal leading-[37.2px] font-inter;
+}
+
+/* text-h4 styles */
+.text-h4-bold {
+  @apply text-[25px] font-bold leading-[30px] font-inter;
+}
+
+.text-h4-light {
+  @apply text-[25px] font-light leading-[30px] font-inter;
+}
+
+.text-h4-regular {
+  @apply text-[25px] font-normal leading-[30px] font-inter;
+}
+
+/* text-headline styles */
+.text-headline-bold {
+  @apply text-[20px] font-bold leading-[24px] font-inter;
+}
+
+.text-headline-light {
+  @apply text-[20px] font-light leading-[24px] font-inter;
+}
+
+.text-headline-regular {
+  @apply text-[20px] font-normal leading-[24px] font-inter;
+}
+
+/* text-body styles */
+.text-body-bold {
+  @apply text-[16px] font-bold font-inter;
+}
+
+.text-body-regular {
+  @apply text-[16px] font-normal font-inter;
+}
+
+.text-body-light {
+  @apply text-[16px] font-light font-inter;
+}
+
+/* text-subtitle styles */
+.text-subtitle-bold {
+  @apply text-[13px] font-normal font-inter;
+}
+
+.text-subtitle-light {
+  @apply text-[13px] font-light font-inter;
+}
+
+.text-subtitle-regular {
+  @apply text-[13px] font-normal font-inter;
+}
+
+/* text-caption styles */
+.text-caption-bold {
+  @apply text-[11px] font-normal font-inter;
+}
+
+.text-caption-light {
+  @apply text-[11px] font-light font-inter;
+}
+
+.text-caption-regular {
+  @apply text-[11px] font-normal font-inter;
+}
+
+/* text-footnote styles */
+.text-footnote-bold {
+  @apply text-[10px] font-medium font-inter;
+}
+
+.text-footnote-light {
+  @apply text-[10px] font-light font-inter;
+}
+
+.text-footnote-regular {
+  @apply text-[10px] font-normal font-inter;
 }
