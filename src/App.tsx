@@ -1,16 +1,15 @@
 import { Button } from "./components/button";
-
-import { Popup, PopupContent, PopupTrigger } from "./components/popup";
+import { Popup } from "./components/popup";
 
 const App = () => {
   return (
     <div className="flex w-screen h-screen items-center justify-center">
-      <Popup dismissable={true}>
-        <PopupTrigger>
-          <Button>Open Popup</Button>
-        </PopupTrigger>
-        <PopupContent dismissable={true}>idk</PopupContent>
-      </Popup>
+      <Popup
+        dismissable
+        header={<div>This is a header</div>}
+        trigger={<Button>Yeahh</Button>}
+        content={<div>This is some content</div>}
+      />
     </div>
   );
 };
