@@ -23,6 +23,8 @@ const Text: React.FC<TextProps> = ({
   size = "body",
   variant = "regular",
 }) => {
+  const validColor = color && color.startsWith("text-") ? color : undefined;
+
   const textClass = cn({
     "text-h1-bold": size === "h1" && variant === "bold",
     "text-h1-light": size === "h1" && variant === "light",
@@ -53,11 +55,7 @@ const Text: React.FC<TextProps> = ({
     "text-footnote-regular": size === "footnote" && variant === "regular",
   });
 
-  return (
-    <span className={textClass} style={{ color }}>
-      {children}
-    </span>
-  );
+  return <span className={cn(textClass, validColor)}>{children}</span>;
 };
 
 export default Text;
