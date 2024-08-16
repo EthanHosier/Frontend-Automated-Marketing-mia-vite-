@@ -1,16 +1,34 @@
-interface InputProps {
+import { cn } from "@/lib/utils";
+
+interface TextInputProps {
   label: string;
+  type?: string;
+  widthFull?: boolean;
+  required?: boolean;
 }
 
-export const Input: React.FC<InputProps> = ({ label }) => {
+export const TextInput: React.FC<TextInputProps> = ({
+  label,
+  type = "text",
+  widthFull,
+  required,
+}) => {
   return (
-    <div className="relative max-w-sm bg-grayscaleSurface-default rounded-lg w-[342px] h-[52px] hover:bg-gray-200 transition-colors duration-200 ease-in">
+    <div
+      className={cn(
+        "relative bg-grayscaleSurface-default rounded-lg w-[342px] h-[52px] hover:bg-gray-200 transition-colors duration-200 ease-in",
+        {
+          "w-full": widthFull,
+        }
+      )}
+    >
       <div className="group relative z-0 mb-0 w-full flex items-center h-full px-4">
         <input
-          type="text"
+          type={type}
           id="floating-input"
           className="peer block w-full appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1"
           placeholder=" "
+          required={!!required}
         />
         <label
           htmlFor="floating-input"

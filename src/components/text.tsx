@@ -15,6 +15,7 @@ interface TextProps {
     | "caption"
     | "footnote";
   variant?: "light" | "regular" | "bold";
+  className?: string;
 }
 
 const Text: React.FC<TextProps> = ({
@@ -22,6 +23,7 @@ const Text: React.FC<TextProps> = ({
   color,
   size = "body",
   variant = "regular",
+  className,
 }) => {
   const validColor = color && color.startsWith("text-") ? color : undefined;
 
@@ -55,7 +57,9 @@ const Text: React.FC<TextProps> = ({
     "text-footnote-regular": size === "footnote" && variant === "regular",
   });
 
-  return <span className={cn(textClass, validColor)}>{children}</span>;
+  return (
+    <span className={cn(textClass, className, validColor)}>{children}</span>
+  );
 };
 
 export default Text;

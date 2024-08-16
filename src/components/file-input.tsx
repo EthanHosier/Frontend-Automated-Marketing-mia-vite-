@@ -1,12 +1,14 @@
 import { cn } from "@/lib/utils";
 import { useDropzone } from "react-dropzone";
 
-interface FileUploaderProps extends React.HTMLProps<HTMLDivElement> {
+interface FileInputProps extends React.HTMLProps<HTMLDivElement> {
   onDrop: (acceptedFiles: any) => void;
+  widthFull?: boolean;
 }
-export const FileUploader: React.FC<FileUploaderProps> = ({
+export const FileInput: React.FC<FileInputProps> = ({
   onDrop,
   className,
+  widthFull,
   ...props
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
@@ -18,7 +20,8 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         "bg-grayscaleSurface-default h-[104px] rounded-xl w-[342px] flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors duration-200 ease-in",
         isDragActive &&
           "border-2 border-dashed  border-grayscaleBorder-default",
-        className
+        className,
+        { "w-full": !!widthFull }
       )}
       {...props}
     >

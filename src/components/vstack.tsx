@@ -3,7 +3,41 @@ import { cn } from "@/lib/utils";
 interface VStackProps {
   children: React.ReactNode;
   justify?: "start" | "center" | "end";
-
+  heightFull?: boolean;
+  paddingX?:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16;
+  paddingXDesktop?:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16;
   gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
   gapDesktop?:
     | 1
@@ -29,12 +63,15 @@ export const VStack: React.FC<VStackProps> = ({
   justify,
   gap,
   gapDesktop,
+  paddingX,
+  paddingXDesktop,
+  heightFull,
 }) => {
   return (
     <>
       <div
         className={cn(
-          "flex flex-col dynamic-gap justify-start h-full",
+          "flex flex-col dynamic-gap justify-start gap-4",
           {
             "justify-start": justify === "start",
             "justify-center": justify === "center",
@@ -75,6 +112,45 @@ export const VStack: React.FC<VStackProps> = ({
             "md:gap-[56px]": gapDesktop === 14,
             "md:gap-[60px]": gapDesktop === 15,
             "md:gap-[64px]": gapDesktop === 16,
+          },
+          {
+            "px-[4px]": paddingX === 1,
+            "px-[8px]": paddingX === 2,
+            "px-[12px]": paddingX === 3,
+            "px-[16px]": paddingX === 4,
+            "px-[20px]": paddingX === 5,
+            "px-[24px]": paddingX === 6,
+            "px-[28px]": paddingX === 7,
+            "px-[32px]": paddingX === 8,
+            "px-[36px]": paddingX === 9,
+            "px-[40px]": paddingX === 10,
+            "px-[44px]": paddingX === 11,
+            "px-[48px]": paddingX === 12,
+            "px-[52px]": paddingX === 13,
+            "px-[56px]": paddingX === 14,
+            "px-[60px]": paddingX === 15,
+            "px-[64px]": paddingX === 16,
+          },
+          {
+            "md:px-[4px]": paddingXDesktop === 1,
+            "md:px-[8px]": paddingXDesktop === 2,
+            "md:px-[12px]": paddingXDesktop === 3,
+            "md:px-[16px]": paddingXDesktop === 4,
+            "md:px-[20px]": paddingXDesktop === 5,
+            "md:px-[24px]": paddingXDesktop === 6,
+            "md:px-[28px]": paddingXDesktop === 7,
+            "md:px-[32px]": paddingXDesktop === 8,
+            "md:px-[36px]": paddingXDesktop === 9,
+            "md:px-[40px]": paddingXDesktop === 10,
+            "md:px-[44px]": paddingXDesktop === 11,
+            "md:px-[48px]": paddingXDesktop === 12,
+            "md:px-[52px]": paddingXDesktop === 13,
+            "md:px-[56px]": paddingXDesktop === 14,
+            "md:px-[60px]": paddingXDesktop === 15,
+            "md:px-[64px]": paddingXDesktop === 16,
+          },
+          {
+            "h-full": !!heightFull,
           }
         )}
       >

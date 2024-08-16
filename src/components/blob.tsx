@@ -5,6 +5,43 @@ interface BlobProps {
   children: React.ReactNode;
   widthFull?: boolean;
   color?: "white" | "gray";
+  className?: string;
+  rounded?: "sm" | "md" | "lg" | "xl" | "full";
+  gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
+  paddingX?:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16;
+  paddingY?:
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16;
   padding?:
     | 1
     | 2
@@ -47,17 +84,22 @@ const Blob: React.FC<BlobProps> = ({
   color,
   padding,
   paddingDesktop,
+  className,
+  rounded,
+  paddingX,
+  paddingY,
+  gap,
 }) => {
   return (
     <div
       className={cn(
-        "bg-white rounded-xl",
+        "bg-white rounded-xl w-fit h-fit",
         {
           "bg-grayscaleSurface-default": color === "gray",
           "bg-white": color === "white",
         },
         {
-          "w-full": widthFull,
+          "w-full": !!widthFull,
         },
         {
           "p-[4px]": padding === 1,
@@ -94,7 +136,69 @@ const Blob: React.FC<BlobProps> = ({
           "md:p-[56px]": paddingDesktop === 14,
           "md:p-[60px]": paddingDesktop === 15,
           "md:p-[64px]": paddingDesktop === 16,
-        }
+        },
+        {
+          "rounded-sm": rounded === "sm",
+          "rounded-md": rounded === "md",
+          "rounded-lg": rounded === "lg",
+          "rounded-xl": rounded === "xl",
+          "rounded-full": rounded === "full",
+        },
+        {
+          "px-[4px]": paddingX === 1,
+          "px-[8px]": paddingX === 2,
+          "px-[12px]": paddingX === 3,
+          "px-[16px]": paddingX === 4,
+          "px-[20px]": paddingX === 5,
+          "px-[24px]": paddingX === 6,
+          "px-[28px]": paddingX === 7,
+          "px-[32px]": paddingX === 8,
+          "px-[36px]": paddingX === 9,
+          "px-[40px]": paddingX === 10,
+          "px-[44px]": paddingX === 11,
+          "px-[48px]": paddingX === 12,
+          "px-[52px]": paddingX === 13,
+          "px-[56px]": paddingX === 14,
+          "px-[60px]": paddingX === 15,
+          "px-[64px]": paddingX === 16,
+        },
+        {
+          "py-[4px]": paddingY === 1,
+          "py-[8px]": paddingY === 2,
+          "py-[12px]": paddingY === 3,
+          "py-[16px]": paddingY === 4,
+          "py-[20px]": paddingY === 5,
+          "py-[24px]": paddingY === 6,
+          "py-[28px]": paddingY === 7,
+          "py-[32px]": paddingY === 8,
+          "py-[36px]": paddingY === 9,
+          "py-[40px]": paddingY === 10,
+          "py-[44px]": paddingY === 11,
+          "py-[48px]": paddingY === 12,
+          "py-[52px]": paddingY === 13,
+          "py-[56px]": paddingY === 14,
+          "py-[60px]": paddingY === 15,
+          "py-[64px]": paddingY === 16,
+        },
+        {
+          "gap-[4px]": gap === 1,
+          "gap-[8px]": gap === 2,
+          "gap-[12px]": gap === 3,
+          "gap-[16px]": gap === 4,
+          "gap-[20px]": gap === 5,
+          "gap-[24px]": gap === 6,
+          "gap-[28px]": gap === 7,
+          "gap-[32px]": gap === 8,
+          "gap-[36px]": gap === 9,
+          "gap-[40px]": gap === 10,
+          "gap-[44px]": gap === 11,
+          "gap-[48px]": gap === 12,
+          "gap-[52px]": gap === 13,
+          "gap-[56px]": gap === 14,
+          "gap-[60px]": gap === 15,
+          "gap-[64px]": gap === 16,
+        },
+        className
       )}
     >
       {children}
