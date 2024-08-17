@@ -50,7 +50,7 @@ export const Popup: React.FC<PopupProps> = ({
           <DialogTrigger>{trigger}</DialogTrigger>
           <DialogContent
             onInteractOutside={(e) => {
-              !dismissable && e.preventDefault();
+              if (!dismissable) e.preventDefault();
             }}
           >
             {dismissable && (

@@ -21,14 +21,19 @@ const Page1 = () => (
         We don't need much. Mia is pretty smart!
       </Text>
     </VStack>
-    <TextInput label="Business Name" required widthFull />
+    <TextInput label="Business Name" name="business name" widthFull />
 
     <VStack gap={2}>
       <Text size="subtitle">Upload logo</Text>
       <FileInput onDrop={() => {}} widthFull />
     </VStack>
 
-    <TextInput label="Primary Location" required type="email" widthFull />
+    <TextInput
+      label="Primary Location"
+      type="email"
+      name="primary location"
+      widthFull
+    />
     <Gap />
     <Button size={"xl"}>Continue</Button>
   </VStack>
@@ -49,7 +54,7 @@ const Page2 = () => (
         Now it's time for some magic.
       </Text>
     </VStack>
-    <TextInput label="Business Name" required widthFull />
+    <TextInput label="Business Name" name="business name" widthFull />
     <Gap />
     <Button size={"xl"}>Continue</Button>
   </VStack>

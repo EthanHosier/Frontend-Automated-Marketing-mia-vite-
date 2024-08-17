@@ -5,7 +5,7 @@ interface FormProps<T extends FieldValues> {
   children: React.ReactNode;
   handleSubmit: (
     onValid: (data: T) => void,
-    onInvalid?: (errors: any) => void
+    onInvalid?: (errors: unknown) => void
   ) => (e?: React.BaseSyntheticEvent) => Promise<void>;
   methods: UseFormReturn<T>;
 }

@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { useDropzone } from "react-dropzone";
 
 interface FileInputProps extends React.HTMLProps<HTMLDivElement> {
-  onDrop: (acceptedFiles: any) => void;
+  onDrop: (acceptedFiles: unknown) => void;
   widthFull?: boolean;
 }
 export const FileInput: React.FC<FileInputProps> = ({

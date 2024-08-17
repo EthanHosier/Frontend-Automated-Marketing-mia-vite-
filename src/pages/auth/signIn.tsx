@@ -1,6 +1,4 @@
-import { Button } from "@/components/button";
 import MiaLogo from "@/components/mia-logo";
-import RoundSocialMediaIcon from "@/components/round-social-media-icon";
 import Text from "@/components/text";
 import { VStack } from "@/components/vstack";
 import SignInForm from "./components/signInForm/signInForm";

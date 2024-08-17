@@ -40,7 +40,7 @@ export function TransitionPanelCard() {
   useEffect(() => {
     if (activeIndex < 0) setActiveIndex(0);
     if (activeIndex >= FEATURES.length) setActiveIndex(FEATURES.length - 1);
-  }, [activeIndex]);
+  }, [activeIndex, FEATURES.length]);
 
   return (
     <div className="w-[364px] overflow-hidden rounded-xl border border-zinc-950/10 bg-white dark:bg-zinc-700">
