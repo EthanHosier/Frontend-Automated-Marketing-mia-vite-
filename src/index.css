@@ -403,3 +403,6 @@
 .txt-footnote-regular {
   @apply text-[10px] font-normal font-inter;
 }
+.gap-inherit {
+  gap: inherit;
+}
