@@ -17,10 +17,12 @@ export const TextInput: React.FC<TextInputProps> = ({
   name,
   ...props
 }) => {
+  const formContext = useFormContext();
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = formContext ?? { register: () => {}, formState: { errors: {} } };
+
   const error = errors[name];
 
   return (

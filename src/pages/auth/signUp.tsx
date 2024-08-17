@@ -3,7 +3,7 @@ import MiaLogo from "@/components/mia-logo";
 import RoundSocialMediaIcon from "@/components/round-social-media-icon";
 import Text from "@/components/text";
 import { VStack } from "@/components/vstack";
-import SignUpForm from "./components/signUpForm";
+import SignUpForm from "./components/signUpForm/signUpForm";
 
 const SignUp = () => {
   return (
@@ -18,21 +18,6 @@ const SignUp = () => {
         </Text>
       </VStack>
       <SignUpForm />
-      <Button variant="outline" size="md" className="gap-3">
-        <img
-          src="src/assets/google-round.png"
-          alt="google"
-          className="size-[24px] -ml-2"
-        />
-        Sign in with Google
-      </Button>
-      <Button variant="outline" size="md" className="gap-3">
-        <RoundSocialMediaIcon
-          platform="facebook"
-          className="size-[24px] -ml-2"
-        />
-        Sign in with Facebook
-      </Button>
     </VStack>
   );
 };
