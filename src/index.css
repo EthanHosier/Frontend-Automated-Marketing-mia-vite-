@@ -288,118 +288,118 @@
   }
 }
 
-.text-h1-bold {
+.txt-h1-bold {
   @apply text-[49px] font-extrabold leading-[58.8px] font-inter;
 }
 
-.text-h1-light {
+.txt-h1-light {
   @apply text-[49px] font-normal leading-[58.8px] font-inter;
 }
 
-.text-h1-regular {
+.txt-h1-regular {
   @apply text-[49px] font-normal leading-[58.8px] font-inter;
 }
 
-/* text-h2 styles */
-.text-h2-bold {
+/* txt-h2 styles */
+.txt-h2-bold {
   @apply text-[39px] font-extrabold leading-[46.8px] font-inter;
 }
 
-.text-h2-light {
+.txt-h2-light {
   @apply text-[39px] font-normal leading-[46.8px] font-inter;
 }
 
-.text-h2-regular {
+.txt-h2-regular {
   @apply text-[39px] font-normal leading-[46.8px] font-inter;
 }
 
-/* text-h3 styles */
-.text-h3-bold {
+/* txt-h3 styles */
+.txt-h3-bold {
   @apply text-[31px] font-extrabold leading-[37.2px] font-inter;
 }
 
-.text-h3-light {
+.txt-h3-light {
   @apply text-[31px] font-light leading-[37.2px] font-inter;
 }
 
-.text-h3-regular {
+.txt-h3-regular {
   @apply text-[31px] font-normal leading-[37.2px] font-inter;
 }
 
-/* text-h4 styles */
-.text-h4-bold {
+/* txt-h4 styles */
+.txt-h4-bold {
   @apply text-[25px] font-bold leading-[30px] font-inter;
 }
 
-.text-h4-light {
+.txt-h4-light {
   @apply text-[25px] font-light leading-[30px] font-inter;
 }
 
-.text-h4-regular {
+.txt-h4-regular {
   @apply text-[25px] font-normal leading-[30px] font-inter;
 }
 
-/* text-headline styles */
-.text-headline-bold {
+/* txt-headline styles */
+.txt-headline-bold {
   @apply text-[20px] font-bold leading-[24px] font-inter;
 }
 
-.text-headline-light {
+.txt-headline-light {
   @apply text-[20px] font-light leading-[24px] font-inter;
 }
 
-.text-headline-regular {
+.txt-headline-regular {
   @apply text-[20px] font-normal leading-[24px] font-inter;
 }
 
-/* text-body styles */
-.text-body-bold {
+/* txt-body styles */
+.txt-body-bold {
   @apply text-[16px] font-bold font-inter;
 }
 
-.text-body-regular {
+.txt-body-regular {
   @apply text-[16px] font-normal font-inter;
 }
 
-.text-body-light {
+.txt-body-light {
   @apply text-[16px] font-light font-inter;
 }
 
-/* text-subtitle styles */
-.text-subtitle-bold {
+/* txt-subtitle styles */
+.txt-subtitle-bold {
   @apply text-[13px] font-normal font-inter;
 }
 
-.text-subtitle-light {
+.txt-subtitle-light {
   @apply text-[13px] font-light font-inter;
 }
 
-.text-subtitle-regular {
+.txt-subtitle-regular {
   @apply text-[13px] font-normal font-inter;
 }
 
-/* text-caption styles */
-.text-caption-bold {
+/* txt-caption styles */
+.txt-caption-bold {
   @apply text-[11px] font-normal font-inter;
 }
 
-.text-caption-light {
+.txt-caption-light {
   @apply text-[11px] font-light font-inter;
 }
 
-.text-caption-regular {
+.txt-caption-regular {
   @apply text-[11px] font-normal font-inter;
 }
 
-/* text-footnote styles */
-.text-footnote-bold {
+/* txt-footnote styles */
+.txt-footnote-bold {
   @apply text-[10px] font-medium font-inter;
 }
 
-.text-footnote-light {
+.txt-footnote-light {
   @apply text-[10px] font-light font-inter;
 }
 
-.text-footnote-regular {
+.txt-footnote-regular {
   @apply text-[10px] font-normal font-inter;
 }

@@ -6,7 +6,6 @@ import { Button } from "@/components/button";
 import { Gap } from "@/components/gap";
 import { ArrowLeft } from "lucide-react";
 import { HStack } from "@/components/hstack";
-import { TransitionPanelCard } from "@/components/idk";
 
 const Onboarding = () => {
   return Page2();
@@ -18,7 +17,9 @@ const Page1 = () => (
       <Text size="h3" variant="bold">
         Tell us about your business
       </Text>
-      <Text>We don't need much. Mia is pretty smart!</Text>
+      <Text color="text-grayscaleText-subtitle">
+        We don't need much. Mia is pretty smart!
+      </Text>
     </VStack>
     <TextInput label="Business Name" required widthFull />
 
@@ -44,9 +45,11 @@ const Page2 = () => (
       <Text size="h3" variant="bold">
         Enter your website
       </Text>
-      <Text>Now it's time for some magic.</Text>
+      <Text color="text-grayscaleText-subtitle">
+        Now it's time for some magic.
+      </Text>
     </VStack>
-    <TextInput label="Business Name" required />
+    <TextInput label="Business Name" required widthFull />
     <Gap />
     <Button size={"xl"}>Continue</Button>
   </VStack>
