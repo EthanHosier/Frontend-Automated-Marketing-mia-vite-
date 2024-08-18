@@ -1,15 +1,19 @@
 import useSession from "@/hooks/useSession";
-import { Outlet } from "react-router-dom";
+import Loading from "@/pages/loading/loading";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export const ProtectedLayout = () => {
   const { session, loading } = useSession();
+  const navigate = useNavigate();
+
+  // todo: add a function which attempts to load the user's details. If fails, sends to onboarding page
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (!session) {
-    return <div>Not authenticated</div>;
+    navigate("/");
   }
 
   console.log(session);
