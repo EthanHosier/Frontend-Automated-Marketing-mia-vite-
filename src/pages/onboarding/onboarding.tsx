@@ -143,7 +143,7 @@ const Onboarding = () => {
           </VStack>
           <TextInput label="www.website.com" name="website" widthFull />
           <Gap />
-          <Button size={"xl"} disabled={isSubmitting}>
+          <Button size={"xl"} loading={isSubmitting} disabled={isSubmitting}>
             Continue
           </Button>
         </VStack>
