@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { VStack } from "./vstack";
 import Text from "./text";
 
-interface TextInputProps {
+interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type?: string;
   widthFull?: boolean;
