@@ -4,6 +4,7 @@ import SignUp from "./pages/auth/signUp";
 import SignIn from "./pages/auth/signIn";
 import { Routes } from "./types/routes";
 import Onboarding from "./pages/onboarding/onboarding";
+import ProtectedLayout from "./layouts/ProtectedLayout";
 
 export const router = createBrowserRouter([
   {
@@ -18,9 +19,21 @@ export const router = createBrowserRouter([
         path: Routes.SignIn,
         element: <SignIn />,
       },
+    ],
+  },
+  {
+    path: "/",
+    element: <ProtectedLayout />,
+    children: [
       {
         path: Routes.Onboarding,
-        element: <Onboarding />,
+        element: <AuthOnboardingLayout />,
+        children: [
+          {
+            path: Routes.Onboarding,
+            element: <Onboarding />,
+          },
+        ],
       },
     ],
   },

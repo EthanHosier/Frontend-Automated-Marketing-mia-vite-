@@ -9,8 +9,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SignInFormData, SignInFormSchema } from "./schema";
 import { Form } from "@/components/form";
 import RoundSocialMediaIcon from "@/components/round-social-media-icon";
+import { Link, useSearchParams } from "react-router-dom";
+import { supabase } from "@/supabase/supabaseClient";
 
 const SignInForm = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const confirmation = searchParams.get("confirmation");
+
   const methods = useForm<SignInFormData>({
     resolver: zodResolver(SignInFormSchema),
   });
@@ -18,33 +23,73 @@ const SignInForm = () => {
   const {
     handleSubmit,
     formState: { isSubmitting },
+    setError,
   } = methods;
 
   const onSubmit: SubmitHandler<SignInFormData> = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+    const { error, data: authData } = await supabase.auth.signInWithOtp({
+      email: data.email,
+      options: {
+        emailRedirectTo: "http://localhost:5173/onboarding", // Add 'confirmation' param
+      },
+    });
+
+    console.log({ error, authData });
+
+    if (error) {
+      setError("email", {
+        type: "manual",
+        message: error.message,
+      });
+    } else {
+      console.log(authData);
+      setSearchParams({ confirmation: "true" }); // Update URL param after successful sign-up
+    }
   };
 
   return (
     <Form handleSubmit={() => handleSubmit(onSubmit)} methods={methods}>
-      <TextInput label="Email" type="email" name="email" widthFull />
       <VStack gap={2}>
-        <TextInput label="Password" type="password" name="password" widthFull />
+        <TextInput label="Email" type="email" name="email" widthFull />
         <HStack justify="end">
-          <Text size="subtitle" variant="bold">
-            <a href="#">Forgot password?</a>
+          <Text size="subtitle" color="text-grayscaleText-body">
+            Haven't registed yet?{" "}
+            <Text
+              size="subtitle"
+              variant="bold"
+              color="text-primarySurface-default"
+            >
+              <Link to="/">Create account</Link>
+            </Text>
           </Text>
         </HStack>
       </VStack>
       <Gap />
-      <Button variant="primary" size="xl" loading={isSubmitting}>
-        Sign in
-      </Button>
+      <VStack gap={2}>
+        {confirmation === "true" && ( // Conditionally render based on URL param
+          <Text
+            className="mx-4"
+            variant="light"
+            size="subtitle"
+            color="text-success-text-label"
+          >
+            Please check your email for OTP
+          </Text>
+        )}
+        <Button
+          variant="primary"
+          size="xl"
+          loading={isSubmitting}
+          disabled={isSubmitting || confirmation === "true"}
+        >
+          Sign in
+        </Button>
+      </VStack>
       <Button
         variant="outline"
         size="md"
         className="gap-3"
-        disabled={isSubmitting}
+        disabled={isSubmitting || confirmation === "true"}
       >
         <img
           src="src/assets/google-round.png"
@@ -57,7 +102,7 @@ const SignInForm = () => {
         variant="outline"
         size="md"
         className="gap-3"
-        disabled={isSubmitting}
+        disabled={isSubmitting || confirmation === "true"}
       >
         <RoundSocialMediaIcon
           platform="facebook"

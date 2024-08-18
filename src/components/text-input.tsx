@@ -52,7 +52,12 @@ export const TextInput: React.FC<TextInputProps> = ({
         </div>
       </div>
       {error && (
-        <Text variant="light" color="text-red-700" className="ml-4">
+        <Text
+          variant="light"
+          color="text-red-700"
+          size="subtitle"
+          className="ml-4"
+        >
           {" "}
           {error.message?.toString()}
         </Text>

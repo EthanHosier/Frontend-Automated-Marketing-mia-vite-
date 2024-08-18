@@ -367,7 +367,7 @@
 
 /* txt-subtitle styles */
 .txt-subtitle-bold {
-  @apply text-[13px] font-normal font-inter;
+  @apply text-[13px] font-bold font-inter;
 }
 
 .txt-subtitle-light {
