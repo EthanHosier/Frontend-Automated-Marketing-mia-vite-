@@ -78,7 +78,10 @@ const DashboardLayout = () => {
         </Sidebar>
 
         <div className="w-full flex flex-col overflow-hidden">
-          <div className="w-full flex-1 bg-grayscaleSurface-default rounded-lg md:rounded-none md:rounded-tl-[16px] overflow-auto pl-[24px] pt-[24px] md:pl-[64px]">
+          <div
+            className="w-full flex-1 bg-grayscaleSurface-default rounded-lg md:rounded-none md:rounded-tl-[16px] overflow-auto py-[24px] md:pl-[64px]
+          md:py-[64px] flex flex-col gap-[24px] md:gap-[64px]"
+          >
             <Outlet />
           </div>
           <nav className="w-full h-[64px] bg-white rounded-lg md:rounded-none md:rounded-tr-[16px] md:hidden flex-shrink-0 my-2">

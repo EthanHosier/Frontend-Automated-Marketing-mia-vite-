@@ -16,6 +16,7 @@ interface TextProps {
     | "footnote";
   variant?: "light" | "regular" | "bold";
   className?: string;
+  truncate?: boolean;
 }
 
 const Text: React.FC<TextProps> = ({
@@ -24,6 +25,7 @@ const Text: React.FC<TextProps> = ({
   size = "body",
   variant = "regular",
   className,
+  truncate,
 }) => {
   const validColor = color && color.startsWith("text-") ? color : undefined;
 
@@ -58,7 +60,11 @@ const Text: React.FC<TextProps> = ({
   });
 
   return (
-    <span className={cn(textClass, validColor, className)}>{children}</span>
+    <span
+      className={cn(textClass, validColor, className, truncate && "truncate")}
+    >
+      {children}
+    </span>
   );
 };
 

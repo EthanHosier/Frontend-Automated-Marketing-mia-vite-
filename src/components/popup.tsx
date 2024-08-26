@@ -50,10 +50,10 @@ export const Popup: React.FC<PopupProps> = ({
           <DialogTrigger>{trigger}</DialogTrigger>
           <DialogContent
             onInteractOutside={(e) => {
-              if (!dismissable) e.preventDefault();
+              if (dismissable === false) e.preventDefault();
             }}
           >
-            {dismissable && (
+            {dismissable !== false && (
               <DialogClose className="absolute right-4 top-4">
                 <Button size="xl" variant="outline" icon>
                   <X className="size-4" />
