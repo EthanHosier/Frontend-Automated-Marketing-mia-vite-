@@ -5,7 +5,8 @@ import Text from "@/components/text";
 import { VStack } from "@/components/vstack";
 import CampaignPreview from "@/components/widgets/campaign-preview";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
+import NewCampaignForm from "./components/newCampaignForm";
 
 const Campaigns = () => {
   return (
@@ -38,7 +39,21 @@ const Campaigns = () => {
                 </Button>
               </>
             }
-            content={<>yeah</>}
+            content={<NewCampaignForm />}
+            header={
+              <HStack>
+                <VStack gap={0}>
+                  <Text variant="bold" size="h4" className="Poppins">
+                    Customize your campaign
+                  </Text>
+                  <Text size="subtitle" color="text-grayscaleText-subtitle">
+                    Describe the objectives and messages you would like to
+                    portray with your campaign
+                  </Text>
+                </VStack>
+              </HStack>
+            }
+            dismissable
           />
         </HStack>
 
@@ -72,7 +87,7 @@ const Campaigns = () => {
             </Text>
           </VStack>
         </HStack>
-        <div className="flex gap-2 md:gap-4 overflow-x-auto snap-x px-4 scrollbar-hide no-scrollbar">
+        <div className="flex gap-3 md:gap-4 overflow-x-auto snap-x px-4 scrollbar-hide no-scrollbar">
           {[...Array(5)].map((_, idx) => (
             <CampaignPreview
               key={`sm${idx}`}

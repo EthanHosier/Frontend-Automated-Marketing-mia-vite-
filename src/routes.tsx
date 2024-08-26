@@ -6,7 +6,7 @@ import { Routes } from "./types/routes";
 import Onboarding from "./pages/onboarding/onboarding";
 import ProtectedLayout from "./layouts/ProtectedLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
-import Campaigns from "./pages/dashboard/campaigns";
+import Campaigns from "./pages/dashboard/campaigns/campaigns";
 
 export const router = createBrowserRouter([
   {

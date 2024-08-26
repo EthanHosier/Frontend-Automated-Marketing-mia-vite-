@@ -1,10 +1,20 @@
 import React, { useEffect, useRef } from "react";
+import { useFormContext } from "react-hook-form";
+import { VStack } from "./vstack";
+import Text from "./text";
+import { cn } from "@/lib/utils";
 
 interface TextareaProps {
   label: string;
+  name: string;
+  widthFull?: boolean;
 }
 
-export const Textarea: React.FC<TextareaProps> = ({ label }) => {
+export const Textarea: React.FC<TextareaProps> = ({
+  label,
+  name,
+  widthFull,
+}) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -22,24 +32,52 @@ export const Textarea: React.FC<TextareaProps> = ({ label }) => {
     }
   };
 
+  const formContext = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = formContext ?? { register: () => {}, formState: { errors: {} } };
+
+  const error = errors[name];
+
   return (
-    <div className="relative max-w-sm bg-grayscaleSurface-default rounded-lg w-[342px] hover:bg-gray-200 transition-colors duration-200 ease-in pb-2">
-      <div className="group relative z-0 mb-0 w-full flex pt-4 px-4">
-        <textarea
-          id="floating-textarea"
-          ref={textareaRef}
-          onInput={adjustHeight}
-          className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden"
-          placeholder=" "
-          rows={1} // Set initial rows to 1 to avoid extra space
-        />
-        <label
-          htmlFor="floating-textarea"
-          className="absolute -z-10 origin-[0] -translate-y-[14px] scale-75 transform text-sm text-grayscaleText-subtitle duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-[14px] peer-focus:scale-75"
-        >
-          {label}
-        </label>
+    <VStack gap={1}>
+      <div
+        className={cn(
+          "relative bg-grayscaleSurface-default rounded-lg w-[342px] hover:bg-gray-200 transition-colors duration-200 ease-in pb-2",
+          {
+            "w-full": widthFull,
+          }
+        )}
+      >
+        <div className="group relative z-0 mb-0 w-full flex pt-4 px-4">
+          <textarea
+            id="floating-textarea"
+            ref={textareaRef}
+            onInput={adjustHeight}
+            className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden"
+            placeholder=" "
+            rows={1} // Set initial rows to 1 to avoid extra space
+          />
+          <label
+            htmlFor="floating-textarea"
+            className="absolute -z-10 origin-[0] -translate-y-[14px] scale-75 transform text-sm text-grayscaleText-subtitle duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-[14px] peer-focus:scale-75"
+          >
+            {label}
+          </label>
+        </div>
       </div>
-    </div>
+      {error && (
+        <Text
+          variant="light"
+          color="text-red-700"
+          size="subtitle"
+          className="ml-4"
+        >
+          {" "}
+          {error.message?.toString()}
+        </Text>
+      )}
+    </VStack>
   );
 };
