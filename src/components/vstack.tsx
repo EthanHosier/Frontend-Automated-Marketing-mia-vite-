@@ -38,8 +38,26 @@ interface VStackProps {
     | 14
     | 15
     | 16;
-  gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
+  gap?:
+    | 0
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16;
   gapDesktop?:
+    | 0
     | 1
     | 2
     | 3
@@ -81,6 +99,7 @@ export const VStack: React.FC<VStackProps> = ({
             "justify-end": justify === "end",
           },
           {
+            "gap-0": gap === 0,
             "gap-[4px]": gap === 1,
             "gap-[8px]": gap === 2,
             "gap-[12px]": gap === 3,
@@ -99,6 +118,7 @@ export const VStack: React.FC<VStackProps> = ({
             "gap-[64px]": gap === 16,
           },
           {
+            "md:gap-0": gapDesktop === 0,
             "md:gap-[4px]": gapDesktop === 1,
             "md:gap-[8px]": gapDesktop === 2,
             "md:gap-[12px]": gapDesktop === 3,

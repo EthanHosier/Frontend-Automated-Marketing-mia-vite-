@@ -279,6 +279,10 @@
   }
 }
 
+.Poppins {
+  font-family: "Poppins", sans-serif !important;
+}
+
 @layer base {
   * {
     @apply border-border;

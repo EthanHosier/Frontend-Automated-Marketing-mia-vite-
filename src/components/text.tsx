@@ -58,7 +58,7 @@ const Text: React.FC<TextProps> = ({
   });
 
   return (
-    <span className={cn(textClass, className, validColor)}>{children}</span>
+    <span className={cn(textClass, validColor, className)}>{children}</span>
   );
 };
 
