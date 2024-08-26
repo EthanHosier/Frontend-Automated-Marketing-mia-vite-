@@ -8,6 +8,7 @@ import ProtectedLayout from "./layouts/ProtectedLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Campaigns from "./pages/dashboard/campaigns/campaigns";
 import Profile from "./pages/dashboard/profile/profile";
+import GeneratedCampaign from "./pages/dashboard/campaigns/generated-campaign/Generated-Campaign";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
           {
             path: Routes.Profile,
             element: <Profile />,
+          },
+          {
+            path: Routes.GeneratedCampaign,
+            element: <GeneratedCampaign />,
           },
         ],
       },

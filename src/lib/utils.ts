@@ -1,10 +1,9 @@
-import {
-  FacebookRound,
-  InstagramRound,
-  LinkedInRound,
-  TwitterXRound,
-  WhatsAppRound,
-} from "@/assets/social-media-icons";
+import FacebookRound from "/assets/social-media-icons/facebook-round.png";
+import InstagramRound from "/assets/social-media-icons/instagram-round.png";
+import LinkedInRound from "/assets/social-media-icons/linkedIn-round.png";
+import TwitterXRound from "/assets/social-media-icons/twitter-x-round.png";
+import WhatsAppRound from "/assets/social-media-icons/whatsapp-round.png";
+
 import { SocialMediaPlatform } from "@/types/socialMediaPlatforms";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";

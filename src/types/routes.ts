@@ -4,4 +4,5 @@ export enum Routes {
   Onboarding = "/onboarding",
   Campaigns = "/campaigns",
   Profile = "/profile",
+  GeneratedCampaign = "/campaigns/:id",
 }

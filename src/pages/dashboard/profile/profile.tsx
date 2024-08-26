@@ -8,7 +8,6 @@ import { Button } from "@/components/button";
 import { EditIcon } from "lucide-react";
 import SocialMediaConnect from "@/components/widgets/social-media-connect";
 import { SocialMediaPlatform } from "@/types/socialMediaPlatforms";
-import { TextInput } from "@/components/text-input";
 import { Textarea } from "@/components/textarea";
 import ColorPicker from "@/components/color-picker";
 
@@ -22,7 +21,7 @@ const Profile = () => {
               <AvatarFallback>{initials("Ethan Hosier")}</AvatarFallback>
             </Avatar>
             <VStack gap={0}>
-              <Text variant="bold" size="headline" className="Poppins">
+              <Text variant="bold" size="headline" className="Poppins" truncate>
                 Ethan Hosier
               </Text>
               <Text color="text-grayscaleText-subtitle" size="subtitle">

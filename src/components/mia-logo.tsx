@@ -16,8 +16,8 @@ const MiaLogo: React.FC<MiaLogoProps> = ({ className, version = "black" }) => {
 
 const miaLogoUrl = (version: string) => {
   return version === "white"
-    ? "src/assets/mia-logos/mia-white.svg"
-    : "src/assets/mia-logos/mia-black.svg";
+    ? "/assets/mia-logos/mia-white.svg"
+    : "/assets/mia-logos/mia-black.svg";
 };
 
 export default MiaLogo;
