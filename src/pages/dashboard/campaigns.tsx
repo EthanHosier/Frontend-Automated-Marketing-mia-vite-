@@ -42,16 +42,20 @@ const Campaigns = () => {
           />
         </HStack>
 
-        <ScrollArea className="flex gap-4 md:gap-6 overflow-x-auto px-4 no-scrollbar ">
+        <div
+          className="flex gap-4 md:gap-6 snap-x overflow-x-auto px-4 no-scrollbar"
+          id="gallery"
+        >
           {[...Array(5)].map((_, idx) => (
             <CampaignPreview
-              key={idx}
+              key={`md${idx}`}
               image="https://images.unsplash.com/photo-1723744895444-e94a0e1dd378?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%"
               title="Title"
               subtitle="Subtitle"
+              className="snap-center"
             />
           ))}
-        </ScrollArea>
+        </div>
       </VStack>
       <VStack gap={4}>
         <HStack>
@@ -68,17 +72,18 @@ const Campaigns = () => {
             </Text>
           </VStack>
         </HStack>
-        <ScrollArea className="flex gap-2 md:gap-4 overflow-x-auto px-4 scrollbar-hide no-scrollbar">
+        <div className="flex gap-2 md:gap-4 overflow-x-auto snap-x px-4 scrollbar-hide no-scrollbar">
           {[...Array(5)].map((_, idx) => (
             <CampaignPreview
-              key={idx}
+              key={`sm${idx}`}
               image="https://images.unsplash.com/photo-1723744895444-e94a0e1dd378?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               title="Title"
               subtitle="Subtitle"
               size="sm"
+              className="snap-center"
             />
           ))}
-        </ScrollArea>
+        </div>
       </VStack>
     </>
   );

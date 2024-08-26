@@ -80,7 +80,7 @@ const DashboardLayout = () => {
         <div className="w-full flex flex-col overflow-hidden">
           <div
             className="w-full flex-1 bg-grayscaleSurface-default rounded-lg md:rounded-none md:rounded-tl-[16px] overflow-auto py-[24px] md:pl-[64px]
-          md:py-[64px] flex flex-col gap-[24px] md:gap-[64px]"
+          md:py-[48px] flex flex-col gap-[24px] md:gap-[64px]"
           >
             <Outlet />
           </div>

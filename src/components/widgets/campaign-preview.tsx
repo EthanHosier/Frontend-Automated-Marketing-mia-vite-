@@ -13,6 +13,7 @@ interface CampaignPreviewProps {
   size?: "default" | "sm";
   loading?: boolean;
   onLike?: () => void;
+  className?: string;
 }
 
 const CampaignPreview: React.FC<CampaignPreviewProps> = ({
@@ -23,6 +24,7 @@ const CampaignPreview: React.FC<CampaignPreviewProps> = ({
   size = "default",
   onLike,
   loading,
+  className,
 }) => {
   const containerClassnames = cn({
     "size-[228px] md:size-[360px]": size === "default",
@@ -31,7 +33,11 @@ const CampaignPreview: React.FC<CampaignPreviewProps> = ({
 
   return (
     <div
-      className={cn(containerClassnames, "rounded-xl relative flex-shrink-0")}
+      className={cn(
+        containerClassnames,
+        "rounded-xl relative flex-shrink-0",
+        className
+      )}
       style={{
         backgroundImage: !loading && image ? `url(${image})` : undefined, // Set background image if available
         backgroundSize: "cover",
