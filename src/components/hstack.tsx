@@ -2,7 +2,8 @@ import { cn } from "@/lib/utils";
 
 interface HStackProps {
   children: React.ReactNode;
-  justify?: "start" | "center" | "end";
+  justify?: "start" | "center" | "end" | "between";
+  items?: "start" | "center" | "end";
   className?: string;
   gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
   gapDesktop?:
@@ -66,6 +67,7 @@ export const HStack: React.FC<HStackProps> = ({
   padding,
   paddingDesktop,
   className,
+  items,
 }) => {
   return (
     <>
@@ -76,6 +78,12 @@ export const HStack: React.FC<HStackProps> = ({
             "justify-start": justify === "start",
             "justify-center": justify === "center",
             "justify-end": justify === "end",
+            "justify-between": justify === "between",
+          },
+          {
+            "items-start": items === "start",
+            "items-center": items === "center",
+            "items-end": items === "end",
           },
           {
             "gap-[4px]": gap === 1,

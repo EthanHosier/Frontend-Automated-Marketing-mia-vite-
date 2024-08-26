@@ -56,6 +56,7 @@ interface VStackProps {
     | 14
     | 15
     | 16;
+  className?: string;
 }
 
 export const VStack: React.FC<VStackProps> = ({
@@ -66,11 +67,13 @@ export const VStack: React.FC<VStackProps> = ({
   paddingX,
   paddingXDesktop,
   heightFull,
+  className,
 }) => {
   return (
     <>
       <div
         className={cn(
+          className,
           "flex flex-col dynamic-gap justify-start gap-4",
           {
             "justify-start": justify === "start",

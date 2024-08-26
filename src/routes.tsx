@@ -5,6 +5,8 @@ import SignIn from "./pages/auth/signIn";
 import { Routes } from "./types/routes";
 import Onboarding from "./pages/onboarding/onboarding";
 import ProtectedLayout from "./layouts/ProtectedLayout";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Campaigns from "./pages/dashboard/campaigns";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ export const router = createBrowserRouter([
           {
             path: Routes.Onboarding,
             element: <Onboarding />,
+          },
+        ],
+      },
+      {
+        path: Routes.Dashboard,
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: Routes.Dashboard,
+            element: <Campaigns />,
           },
         ],
       },

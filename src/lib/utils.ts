@@ -25,3 +25,11 @@ export function isUrl(value: string): string {
   const newUrl = "https://" + value;
   return isValidUrl(newUrl) ? newUrl : "";
 }
+
+export function initials(name: string): string {
+  return name
+    .split(" ")
+    .map((n) => n[0].toUpperCase())
+    .splice(0, 2)
+    .join("");
+}
