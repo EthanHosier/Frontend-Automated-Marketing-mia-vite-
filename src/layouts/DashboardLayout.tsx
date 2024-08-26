@@ -5,7 +5,7 @@ import MiaLogo from "@/components/mia-logo";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/sidebar";
 import { initials } from "@/lib/utils";
 import { Bell, LayoutDashboard, LogOut, Settings, User } from "lucide-react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   const links = [
@@ -41,12 +41,22 @@ const DashboardLayout = () => {
         items="center"
         justify="between"
         padding={6}
-        className="h-[100px] flex-shrink-0"
+        className="md:h-[100px] h-[76px] mb-2 flex-shrink-0"
       >
         <MiaLogo className="h-[58px] md:h-[64px]" />
-        <Button variant={"outline"} size={"xl"} icon>
+        <Button variant={"outline"} size={"xl"} icon className="hidden md:flex">
           <Bell className="size-[16px]" />
         </Button>
+        <HStack className="md:hidden" justify="end" gap={4}>
+          <Button variant={"outline"} size={"md"} icon>
+            <Bell className="size-[16px]" />
+          </Button>
+          <Link to="profile">
+            <Avatar className="size-10 text-xs flex items-center justify-center flex-shrink-0">
+              <AvatarFallback>{initials("Ethan Hosier")}</AvatarFallback>
+            </Avatar>
+          </Link>
+        </HStack>
       </HStack>
 
       <div className="flex flex-1 overflow-hidden px-2 md:px-0">

@@ -24,7 +24,7 @@ const buttonVariants = cva(
       },
       size: {
         md: "h-10 px-4 py-2",
-        sm: "h-9 px-3",
+        sm: "h-6 px-3 ",
         lg: "h-11 px-8",
         xl: "h-[52px] w-full",
       },
@@ -63,9 +63,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         className={cn(
-          buttonVariants({ variant, size, className }),
+          buttonVariants({ variant, size }),
           icon &&
-            "max-w-[52px] !aspect-square rounded-full px-0 py-0 flex items-center justify-center"
+            "max-w-[52px] !aspect-square rounded-full px-0 py-0 flex items-center justify-center",
+          className
         )}
         ref={ref}
         disabled={loading || disabled}

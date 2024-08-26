@@ -7,6 +7,7 @@ import Onboarding from "./pages/onboarding/onboarding";
 import ProtectedLayout from "./layouts/ProtectedLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Campaigns from "./pages/dashboard/campaigns/campaigns";
+import Profile from "./pages/dashboard/profile/profile";
 
 export const router = createBrowserRouter([
   {
@@ -38,12 +39,16 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: Routes.Dashboard,
+        path: "/",
         element: <DashboardLayout />,
         children: [
           {
-            path: Routes.Dashboard,
+            path: Routes.Campaigns,
             element: <Campaigns />,
+          },
+          {
+            path: Routes.Profile,
+            element: <Profile />,
           },
         ],
       },

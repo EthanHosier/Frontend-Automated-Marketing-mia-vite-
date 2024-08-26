@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface MiaLogoProps {
   className?: string;
@@ -6,7 +7,11 @@ interface MiaLogoProps {
 }
 
 const MiaLogo: React.FC<MiaLogoProps> = ({ className, version = "black" }) => {
-  return <img src={miaLogoUrl(version)} alt="Mia Logo" className={className} />;
+  return (
+    <Link to={"campaigns"}>
+      <img src={miaLogoUrl(version)} alt="Mia Logo" className={className} />
+    </Link>
+  );
 };
 
 const miaLogoUrl = (version: string) => {

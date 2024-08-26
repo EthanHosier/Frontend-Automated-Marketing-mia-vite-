@@ -75,6 +75,7 @@ interface VStackProps {
     | 15
     | 16;
   className?: string;
+  items?: "start" | "center" | "end";
 }
 
 export const VStack: React.FC<VStackProps> = ({
@@ -86,6 +87,7 @@ export const VStack: React.FC<VStackProps> = ({
   paddingXDesktop,
   heightFull,
   className,
+  items,
 }) => {
   return (
     <>
@@ -97,6 +99,11 @@ export const VStack: React.FC<VStackProps> = ({
             "justify-start": justify === "start",
             "justify-center": justify === "center",
             "justify-end": justify === "end",
+          },
+          {
+            "items-center": items === "center",
+            "items-start": items === "start",
+            "items-end": items === "end",
           },
           {
             "gap-0": gap === 0,

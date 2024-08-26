@@ -1,3 +1,11 @@
+import {
+  FacebookRound,
+  InstagramRound,
+  LinkedInRound,
+  TwitterXRound,
+  WhatsAppRound,
+} from "@/assets/social-media-icons";
+import { SocialMediaPlatform } from "@/types/socialMediaPlatforms";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -33,3 +41,18 @@ export function initials(name: string): string {
     .splice(0, 2)
     .join("");
 }
+
+export const socialMediaIcon = (platform: SocialMediaPlatform) => {
+  switch (platform) {
+    case "instagram":
+      return InstagramRound;
+    case "linkedIn":
+      return LinkedInRound;
+    case "twitter-x":
+      return TwitterXRound;
+    case "facebook":
+      return FacebookRound;
+    case "whatsapp":
+      return WhatsAppRound;
+  }
+};
