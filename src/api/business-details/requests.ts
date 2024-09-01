@@ -3,6 +3,8 @@ import { QueryKey } from "@/consts/queryKey";
 import { useUser } from "@/hooks/useUser";
 import { getBusinessSummaries, getSitemap } from "./queries";
 
+export const useGenerateBusinessSummaries = () => {};
+
 export const useSitemap = () => {
   const { user } = useUser();
 

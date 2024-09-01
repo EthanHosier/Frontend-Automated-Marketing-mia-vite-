@@ -3,6 +3,11 @@ import { apiClient } from "../apiClient";
 import { GetBusinessSummariesResponse, GetSitemapResponse } from "./types";
 import { apiEndpoints } from "../apiEndpoints";
 
+export const generateBusinessSummaries = () =>
+  apiClient.post<any>(
+    generatePath(apiEndpoints.generateBusinessSummaries.path)
+  );
+
 export const getSitemap = () =>
   apiClient
     .get<GetSitemapResponse>(generatePath(apiEndpoints.getSitemap.path))
