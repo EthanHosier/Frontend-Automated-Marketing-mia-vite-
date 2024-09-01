@@ -9,6 +9,8 @@ interface TextareaProps {
   name: string;
   widthFull?: boolean;
   defaultValue?: string;
+  value?: string;
+  setValue?: (value: string) => void;
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -16,6 +18,8 @@ export const Textarea: React.FC<TextareaProps> = ({
   name,
   widthFull,
   defaultValue,
+  value,
+  setValue,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -23,7 +27,7 @@ export const Textarea: React.FC<TextareaProps> = ({
     if (textareaRef.current) {
       adjustHeight();
     }
-  }, []);
+  }, [defaultValue, value]);
 
   const adjustHeight = () => {
     if (textareaRef.current) {
@@ -57,10 +61,12 @@ export const Textarea: React.FC<TextareaProps> = ({
             id="floating-textarea"
             ref={textareaRef}
             onInput={adjustHeight}
-            className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden"
+            className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden max-h-[200px]"
             placeholder=" "
             rows={1} // Set initial rows to 1 to avoid extra space
             defaultValue={defaultValue}
+            value={value}
+            onChange={(e) => setValue?.(e.target.value)}
           />
           <label
             htmlFor="floating-textarea"

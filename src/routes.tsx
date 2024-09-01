@@ -39,10 +39,6 @@ export const router = createBrowserRouter([
             path: Routes.EnterUrlOnboarding,
             element: <EnterUrl />,
           },
-          {
-            path: Routes.BusinessSummariesOnboarding,
-            element: <BusinessSummaries />,
-          },
         ],
       },
       {

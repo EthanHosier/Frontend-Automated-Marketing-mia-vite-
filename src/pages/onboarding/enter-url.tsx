@@ -14,6 +14,7 @@ import {
 } from "@/api/business-details/requests";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "../loading/loading";
 
 const EnterUrl = () => {
   const { data: sitemapData, isLoading: isSitemapLoading } = useSitemap();
@@ -32,7 +33,7 @@ const EnterUrl = () => {
 
   useEffect(() => {
     if (!isSitemapLoading && !!sitemapData?.urls?.length) {
-      navigate("/onboarding/business-summaries");
+      navigate("/campaigns?updateBusinessSummaries=true");
     }
   }, [sitemapData, isSitemapLoading]);
 
@@ -75,6 +76,8 @@ const EnterUrl = () => {
         </VStack>
       </Form>
     );
+
+  return <Loading />;
 };
 
 export default EnterUrl;
