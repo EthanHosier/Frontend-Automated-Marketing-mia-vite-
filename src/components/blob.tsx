@@ -76,6 +76,7 @@ interface BlobProps {
     | 14
     | 15
     | 16;
+  onClick?: () => void;
 }
 
 const Blob: React.FC<BlobProps> = ({
@@ -89,6 +90,7 @@ const Blob: React.FC<BlobProps> = ({
   paddingX,
   paddingY,
   gap,
+  onClick,
 }) => {
   return (
     <div
@@ -200,6 +202,7 @@ const Blob: React.FC<BlobProps> = ({
         },
         className
       )}
+      onClick={onClick}
     >
       {children}
     </div>

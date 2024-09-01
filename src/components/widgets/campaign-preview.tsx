@@ -27,7 +27,7 @@ const CampaignPreview: React.FC<CampaignPreviewProps> = ({
   className,
 }) => {
   const containerClassnames = cn({
-    "size-[228px] md:size-[360px]": size === "default",
+    "size-[320px] md:size-[360px]": size === "default",
     "size-[200px] md:size-[280px]": size === "sm",
   });
 

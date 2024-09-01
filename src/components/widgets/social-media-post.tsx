@@ -7,6 +7,7 @@ import { VStack } from "../vstack";
 import Text from "../text";
 import RoundSocialMediaIcon from "../round-social-media-icon";
 import { HStack } from "../hstack";
+import { cn } from "@/lib/utils";
 
 interface SocialMediaPostProps {
   image: string;
@@ -14,6 +15,7 @@ interface SocialMediaPostProps {
   businessName: string;
   platform: SocialMediaPlatform;
   loading?: boolean;
+  className?: string;
 }
 
 const SocialMediaPost: React.FC<SocialMediaPostProps> = ({
@@ -22,9 +24,13 @@ const SocialMediaPost: React.FC<SocialMediaPostProps> = ({
   businessName,
   platform,
   loading,
+  className,
 }) => {
   return (
-    <Blob className="w-[336px] h-[448px] md:w-[432px] md:h-[576px]" padding={1}>
+    <Blob
+      className={cn("w-[336px] h-[448px] md:w-[432px] md:h-[576px]", className)}
+      padding={1}
+    >
       <VStack gap={6}>
         {loading ? (
           <AspectRatio ratio={1}>

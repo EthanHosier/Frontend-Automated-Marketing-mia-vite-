@@ -1,19 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-import { AuthOnboardingLayout } from "./layouts/AuthOnboardingLayout";
 import SignUp from "./pages/auth/signUp";
 import SignIn from "./pages/auth/signIn";
 import { Routes } from "./types/routes";
-import Onboarding from "./pages/onboarding/onboarding";
 import ProtectedLayout from "./layouts/ProtectedLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Campaigns from "./pages/dashboard/campaigns/campaigns";
 import Profile from "./pages/dashboard/profile/profile";
 import GeneratedCampaign from "./pages/dashboard/campaigns/generated-campaign/Generated-Campaign";
+import { OnboardingLayout } from "./layouts/OnboardingLayout";
+import { AuthLayout } from "./layouts/AuthLayout";
+import EnterUrl from "./pages/onboarding/enter-url";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <AuthOnboardingLayout />,
+    element: <AuthLayout />,
     children: [
       {
         path: Routes.SignUp,
@@ -31,11 +32,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: Routes.Onboarding,
-        element: <AuthOnboardingLayout />,
+        element: <OnboardingLayout />,
         children: [
           {
-            path: Routes.Onboarding,
-            element: <Onboarding />,
+            path: Routes.EnterUrlOnboarding,
+            element: <EnterUrl />,
           },
         ],
       },

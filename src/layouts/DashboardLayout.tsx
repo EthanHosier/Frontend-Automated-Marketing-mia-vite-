@@ -4,33 +4,54 @@ import { HStack } from "@/components/hstack";
 import MiaLogo from "@/components/mia-logo";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/sidebar";
 import { initials } from "@/lib/utils";
-import { Bell, LayoutDashboard, LogOut, Settings, User } from "lucide-react";
+import {
+  Bell,
+  ChartNoAxesCombined,
+  Inspect,
+  Layers,
+  LayoutDashboard,
+  LogOut,
+  Mail,
+  MessageCircleReply,
+  MessageSquare,
+  ScanSearch,
+  Settings,
+  User,
+} from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   const links = [
     {
-      label: "Dashboard",
+      label: "Campaigns",
       href: "#",
-      icon: <LayoutDashboard className="size-[28px] md:size-5 flex-shrink-0" />,
+      icon: <Layers className="size-[28px] md:size-5 flex-shrink-0" />,
       comingSoon: false,
     },
     {
-      label: "Profile",
+      label: "Insights",
       href: "#",
-      icon: <User className="size-[28px] md:size-5 flex-shrink-0" />,
+      icon: (
+        <ChartNoAxesCombined className="size-[28px] md:size-5 flex-shrink-0" />
+      ),
       comingSoon: true,
     },
     {
-      label: "Settings",
+      label: "Email Outreach",
       href: "#",
-      icon: <Settings className="size-[28px] md:size-5 flex-shrink-0" />,
+      icon: <Mail className="size-[28px] md:size-5 flex-shrink-0" />,
       comingSoon: true,
     },
     {
-      label: "Logout",
+      label: "Chatbots",
       href: "#",
-      icon: <LogOut className="size-[28px] md:size-5 flex-shrink-0" />,
+      icon: <MessageSquare className="size-[28px] md:size-5 flex-shrink-0" />,
+      comingSoon: true,
+    },
+    {
+      label: "SEO Optimization",
+      href: "#",
+      icon: <ScanSearch className="size-[28px] md:size-5 flex-shrink-0" />,
       comingSoon: true,
     },
   ];
@@ -65,7 +86,11 @@ const DashboardLayout = () => {
             <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
               <div className="flex flex-col gap-2">
                 {links.map((link, idx) => (
-                  <SidebarLink key={idx} link={link} />
+                  <SidebarLink
+                    key={idx}
+                    link={link}
+                    comingSoon={link.comingSoon}
+                  />
                 ))}
               </div>
             </div>

@@ -92,7 +92,7 @@ const SignInForm = () => {
         disabled={isSubmitting || confirmation === "true"}
       >
         <img
-          src="src/assets/google-round.png"
+          src="/assets/google-round.png"
           alt="google"
           className="size-[24px] -ml-2"
         />

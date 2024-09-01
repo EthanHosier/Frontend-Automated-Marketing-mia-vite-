@@ -4,6 +4,7 @@ import { LinkProps, Link } from "react-router-dom";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { Badge } from "./badge";
 
 interface Links {
   label: string;
@@ -107,18 +108,20 @@ export const DesktopSidebar = ({
 export const SidebarLink = ({
   link,
   className,
+  comingSoon,
   ...props
 }: {
   link: Links;
   className?: string;
   props?: LinkProps;
+  comingSoon?: boolean;
 }) => {
   const { open, animate } = useSidebar();
   return (
     <Link
       to={link.href}
       className={cn(
-        "flex items-center justify-start gap-2  group/sidebar py-2",
+        "flex items-center justify-start gap-2  group/sidebar py-2 w-full",
         className
       )}
       {...props}
@@ -130,9 +133,14 @@ export const SidebarLink = ({
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
-        className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        className=" text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre flex !p-0 !m-0 w-full"
       >
         {link.label}
+        {comingSoon && (
+          <Badge variant={"secondary"} className="ml-2">
+            Coming soon
+          </Badge>
+        )}
       </motion.span>
     </Link>
   );
