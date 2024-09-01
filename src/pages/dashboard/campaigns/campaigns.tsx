@@ -4,11 +4,14 @@ import { Popup } from "@/components/popup";
 import Text from "@/components/text";
 import { VStack } from "@/components/vstack";
 import CampaignPreview from "@/components/widgets/campaign-preview";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { Plus, X } from "lucide-react";
-import NewCampaignForm from "./components/newCampaignForm";
+import { Plus } from "lucide-react";
+import NewCampaignForm from "./components/newCampaignForm/newCampaignForm";
+import useQueryParam from "@/hooks/useQueryParams";
+import OnboardingBusinessSummaries from "./components/onboarding-business-summaries";
 
 const Campaigns = () => {
+  const updateBusinessSummaries = useQueryParam("updateBusinessSummaries");
+
   return (
     <>
       <VStack gap={4}>
@@ -68,6 +71,7 @@ const Campaigns = () => {
               title="Title"
               subtitle="Subtitle"
               className="snap-center"
+              loading
             />
           ))}
         </div>
@@ -96,10 +100,12 @@ const Campaigns = () => {
               subtitle="Subtitle"
               size="sm"
               className="snap-center"
+              loading
             />
           ))}
         </div>
       </VStack>
+      {updateBusinessSummaries === "true" && <OnboardingBusinessSummaries />}
     </>
   );
 };

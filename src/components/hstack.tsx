@@ -57,6 +57,7 @@ interface HStackProps {
     | 14
     | 15
     | 16;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export const HStack: React.FC<HStackProps> = ({
@@ -68,10 +69,12 @@ export const HStack: React.FC<HStackProps> = ({
   paddingDesktop,
   className,
   items,
+  ref,
 }) => {
   return (
     <>
       <div
+        ref={ref}
         className={cn(
           "flex justify-start w-full",
           {

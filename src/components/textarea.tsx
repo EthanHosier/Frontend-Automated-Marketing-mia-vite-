@@ -8,12 +8,14 @@ interface TextareaProps {
   label: string;
   name: string;
   widthFull?: boolean;
+  defaultValue?: string;
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
   label,
   name,
   widthFull,
+  defaultValue,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -58,6 +60,7 @@ export const Textarea: React.FC<TextareaProps> = ({
             className="peer block w-full resize-none appearance-none bg-transparent px-0 text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 mt-1 overflow-hidden"
             placeholder=" "
             rows={1} // Set initial rows to 1 to avoid extra space
+            defaultValue={defaultValue}
           />
           <label
             htmlFor="floating-textarea"

@@ -76,6 +76,7 @@ interface VStackProps {
     | 16;
   className?: string;
   items?: "start" | "center" | "end";
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export const VStack: React.FC<VStackProps> = ({
@@ -88,10 +89,12 @@ export const VStack: React.FC<VStackProps> = ({
   heightFull,
   className,
   items,
+  ref,
 }) => {
   return (
     <>
       <div
+        ref={ref}
         className={cn(
           className,
           "flex flex-col dynamic-gap justify-start gap-4",
