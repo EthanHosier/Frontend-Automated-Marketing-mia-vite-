@@ -2,12 +2,14 @@ import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
 import { VStack } from "./vstack";
 import Text from "./text";
+import { Skeleton } from "./skeleton";
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type?: string;
   widthFull?: boolean;
   name: string;
+  isLoading?: boolean;
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
@@ -15,6 +17,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   type = "text",
   widthFull,
   name,
+  isLoading,
   ...props
 }) => {
   const formContext = useFormContext();
@@ -24,6 +27,10 @@ export const TextInput: React.FC<TextInputProps> = ({
   } = formContext ?? { register: () => {}, formState: { errors: {} } };
 
   const error = errors[name];
+
+  if (isLoading) {
+    return <Skeleton className="w-[342px] h-[52px]" widthFull={widthFull} />;
+  }
 
   return (
     <VStack gap={1}>

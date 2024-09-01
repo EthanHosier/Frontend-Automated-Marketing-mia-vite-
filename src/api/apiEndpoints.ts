@@ -5,7 +5,11 @@ const API_ROUTE_PATH = "/api";
 export const apiEndpoints = {
   generateBusinessSummaries: {
     method: "POST",
-    path: `${API_ROUTE_PATH}/generate-business-summaries`,
+    path: `${API_ROUTE_PATH}/business-summaries`,
+  },
+  updateBusinessSummaries: {
+    method: "PATCH",
+    path: `${API_ROUTE_PATH}/business-summaries`,
   },
   getSitemap: {
     method: "GET",

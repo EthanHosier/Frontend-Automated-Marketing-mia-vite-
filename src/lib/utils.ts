@@ -12,19 +12,22 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-function isValidUrl(urlString: string): boolean {
-  try {
-    new URL(urlString);
-    return true;
-  } catch (_) {
-    return false;
-  }
+function isValidUrl(url: string): boolean {
+  // Regular expression pattern to match the URL requirements
+  const pattern =
+    /^(https?:\/\/)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}([a-zA-Z0-9\-_~:/?#[\]@!$&'()*+,;=]*)$/;
+
+  // Test the pattern
+  const match = url.match(pattern);
+
+  // Return true only if the entire URL matches the pattern
+  return match !== null && match[0] === url;
 }
 
 export function isUrl(value: string): string {
   if (
-    value.substring(0, 4) === "http://" ||
-    value.substring(0, 5) === "https://"
+    value.substring(0, 7) === "http://" ||
+    value.substring(0, 8) === "https://"
   ) {
     return isValidUrl(value) ? value : "";
   }

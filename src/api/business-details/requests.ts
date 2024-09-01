@@ -1,9 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { QueryKey } from "@/consts/queryKey";
 import { useUser } from "@/hooks/useUser";
-import { getBusinessSummaries, getSitemap } from "./queries";
-
-export const useGenerateBusinessSummaries = () => {};
+import {
+  generateBusinessSummaries,
+  getBusinessSummaries,
+  getSitemap,
+  updateBusinessSummaries,
+} from "./queries";
+import { useNavigate } from "react-router-dom";
+import {
+  GetBusinessSummariesResponse,
+  UpdateBusinessSummariesData,
+} from "./types";
 
 export const useSitemap = () => {
   const { user } = useUser();
@@ -22,5 +30,37 @@ export const useBusinessSummaries = () => {
     queryKey: [QueryKey.BusinessSummaries, user?.id],
     queryFn: getBusinessSummaries,
     enabled: !!user,
+  });
+};
+
+export const useGenerateBusinessSummaries = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const { user } = useUser();
+
+  return useMutation({
+    mutationFn: generateBusinessSummaries,
+    onSuccess: async () => {
+      navigate("/onboarding/business-summaries");
+      await queryClient.invalidateQueries({
+        queryKey: [QueryKey.BusinessSummaries, user?.id],
+      });
+    },
+  });
+};
+
+export const useUpdateBusinessSummaries = () => {
+  const queryClient = useQueryClient();
+  const { user } = useUser();
+
+  return useMutation({
+    mutationFn: (data: UpdateBusinessSummariesData) => {
+      return updateBusinessSummaries(data);
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: [QueryKey.BusinessSummaries, user?.id],
+      });
+    },
   });
 };
