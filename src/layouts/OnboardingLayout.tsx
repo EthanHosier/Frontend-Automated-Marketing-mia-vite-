@@ -1,5 +1,5 @@
 import Blob from "@/components/blob";
-import { useSitemap } from "@/hooks/useSitemap";
+import { useSitemap } from "@/api/business-details/requests";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export const OnboardingLayout = () => {

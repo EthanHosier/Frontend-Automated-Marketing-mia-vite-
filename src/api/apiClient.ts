@@ -7,6 +7,18 @@ export const apiClient = axios.create({
   },
 });
 
+apiClient.interceptors.request.use(
+  async (config) => {
+    const { data } = await supabase.auth.getSession();
+    if (data?.session?.access_token) {
+      config.headers["Authorization"] = `Bearer ${data.session.access_token}`;
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
 apiClient.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {

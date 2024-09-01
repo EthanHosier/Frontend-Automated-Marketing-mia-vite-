@@ -31,7 +31,7 @@ const EnterUrl = () => {
             });
             return;
           }
-
+          console.log(data);
           await new Promise((resolve) => setTimeout(resolve, 1000));
         })
       }
@@ -42,7 +42,7 @@ const EnterUrl = () => {
             Enter your website
           </Text>
           <Text color="text-grayscaleText-subtitle">
-            Now it's time for some magic.
+            It's time for some magic.
           </Text>
         </VStack>
         <TextInput label="www.website.com" name="website" widthFull />

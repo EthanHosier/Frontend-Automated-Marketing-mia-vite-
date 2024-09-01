@@ -7,6 +7,10 @@ export const apiEndpoints = {
     method: "GET",
     path: `${API_ROUTE_PATH}/sitemap`,
   },
+  getBusinessSummaries: {
+    method: "GET",
+    path: `${API_ROUTE_PATH}/business-summaries`,
+  },
 } satisfies {
   [endpoint: string]: { method: HTTPMethod; path: string };
 };
