@@ -45,7 +45,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         <div className="group relative z-0 mb-0 w-full flex items-center h-full">
           <input
             type={type}
-            className="peer block w-full appearance-none bg-transparent text-sm text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 h-full px-4 rounded-lg pt-1"
+            className="peer block w-full appearance-none bg-transparent text-grayscaleText-body focus:border-blue-600 focus:outline-none focus:ring-0 h-full px-4 rounded-lg pt-1 !text-base"
             placeholder=" "
             {...register(name)}
             {...props}
