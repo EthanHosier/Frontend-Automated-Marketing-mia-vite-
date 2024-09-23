@@ -1,6 +1,9 @@
 type HTTPMethod = "GET" | "POST" | "PATCH" | "PUT" | "DELETE";
 
-const API_ROUTE_PATH = "/api";
+const API_ROUTE_PATH =
+  import.meta.env.VITE_MODEE == "development"
+    ? "/api"
+    : import.meta.env.VITE_BACKEND_SERVER;
 
 export const apiEndpoints = {
   generateBusinessSummaries: {
