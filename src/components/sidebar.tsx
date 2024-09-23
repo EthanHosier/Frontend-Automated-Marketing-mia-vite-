@@ -2,8 +2,7 @@
 import { cn } from "@/lib/utils";
 import { LinkProps, Link } from "react-router-dom";
 import React, { useState, createContext, useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { motion } from "framer-motion";
 import { Badge } from "./badge";
 
 interface Links {

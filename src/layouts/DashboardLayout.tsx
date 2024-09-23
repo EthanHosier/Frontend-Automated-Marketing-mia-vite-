@@ -7,16 +7,10 @@ import { initials } from "@/lib/utils";
 import {
   Bell,
   ChartNoAxesCombined,
-  Inspect,
   Layers,
-  LayoutDashboard,
-  LogOut,
   Mail,
-  MessageCircleReply,
   MessageSquare,
   ScanSearch,
-  Settings,
-  User,
 } from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 

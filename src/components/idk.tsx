@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TransitionPanel } from "@/components/primitives/TransitionPanel";
 import useMeasure from "react-use-measure";
 import { Button } from "./button";

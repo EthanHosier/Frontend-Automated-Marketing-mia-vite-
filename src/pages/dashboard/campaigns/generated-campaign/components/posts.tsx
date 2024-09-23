@@ -1,4 +1,4 @@
-import { Button } from "@/components/button";
+import { Post } from "@/api/campaigns/types";
 import {
   Carousel,
   CarouselContent,
@@ -17,7 +17,32 @@ const allSocialMedias: SocialMediaPlatform[] = [
   "whatsapp",
 ] as SocialMediaPlatform[];
 
-const Posts = () => {
+interface PostsProps {
+  isLoading: boolean;
+  posts?: Post[];
+  businessName: string;
+}
+
+const defaultPosts: Post[] = allSocialMedias.map((platform) => ({
+  platform,
+  caption: "caption",
+  design: {
+    created_at: 0,
+    id: "id",
+    title: "title",
+    updated_at: 0,
+    thumbnail: {
+      url: "url",
+    },
+    url: "url",
+    urls: {
+      edit_url: "edit_url",
+      view_url: "view_url",
+    },
+  },
+}));
+
+const Posts: React.FC<PostsProps> = ({ isLoading, posts, businessName }) => {
   return (
     <div>
       <Carousel
@@ -27,18 +52,18 @@ const Posts = () => {
         }}
       >
         <CarouselContent className="-ml-[32px]">
-          {allSocialMedias.map((platform: SocialMediaPlatform) => (
+          {(posts ?? defaultPosts).map((post: Post) => (
             <CarouselItem
-              key={platform}
+              key={post.platform}
               className="flex justify-center md:basis-[432px] pl-[32px]"
             >
               <SocialMediaPost
-                key={platform}
-                image="https://via.placeholder.com/150"
-                caption="caption"
-                businessName="businessName"
-                platform={platform}
-                loading
+                key={post.platform}
+                image={post.design.thumbnail.url}
+                caption={post.caption}
+                businessName={businessName}
+                platform={post.platform as SocialMediaPlatform}
+                loading={isLoading}
                 className=""
               />
             </CarouselItem>

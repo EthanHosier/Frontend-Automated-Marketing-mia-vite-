@@ -40,7 +40,6 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   const formContext = useFormContext();
   const {
-    register,
     formState: { errors },
   } = formContext ?? { register: () => {}, formState: { errors: {} } };
 

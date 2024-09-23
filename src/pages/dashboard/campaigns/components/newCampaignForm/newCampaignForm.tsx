@@ -13,11 +13,7 @@ const NewCampaignForm = () => {
     resolver: zodResolver(NewCampaignFormSchema),
   });
 
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-    setError,
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: NewCampaignFormData) => {
     console.log(data);

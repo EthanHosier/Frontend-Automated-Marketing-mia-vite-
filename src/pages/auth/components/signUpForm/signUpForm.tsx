@@ -22,14 +22,16 @@ const SignUpForm = () => {
   const {
     handleSubmit,
     setError,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting },
   } = methods;
 
   const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
+    const baseUrl = `${window.location.protocol}//${window.location.host}`;
+
     const { error, data: authData } = await supabase.auth.signInWithOtp({
       email: data.email,
       options: {
-        emailRedirectTo: "http://localhost:5173/onboarding", // Add 'confirmation' param
+        emailRedirectTo: `${baseUrl}/onboarding/enter-url`, // Add 'confirmation' param
         data: { name: data.name },
       },
     });
@@ -90,28 +92,28 @@ const SignUpForm = () => {
         variant="outline"
         size="md"
         className="gap-3"
-        disabled={isSubmitting || confirmation === "true"}
+        disabled={isSubmitting || confirmation === "true" || true}
         type="button"
       >
         <img
-          src="src/assets/google-round.png"
+          src="/assets/google-round.png"
           alt="google"
           className="size-[24px] -ml-2"
         />
-        Sign in with Google
+        Sign up with Google
       </Button>
       <Button
         variant="outline"
         size="md"
         className="gap-3"
-        disabled={isSubmitting || confirmation === "true"}
+        disabled={isSubmitting || confirmation === "true" || true}
         type="button"
       >
         <RoundSocialMediaIcon
           platform="facebook"
           className="size-[24px] -ml-2"
         />
-        Sign in with Facebook
+        Sign up with Facebook
       </Button>
     </Form>
   );

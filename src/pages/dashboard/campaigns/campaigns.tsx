@@ -8,9 +8,12 @@ import { Plus } from "lucide-react";
 import NewCampaignForm from "./components/newCampaignForm/newCampaignForm";
 import useQueryParam from "@/hooks/useQueryParams";
 import OnboardingBusinessSummaries from "./components/onboarding-business-summaries";
+import { useNavigate } from "react-router-dom";
 
 const Campaigns = () => {
   const updateBusinessSummaries = useQueryParam("updateBusinessSummaries");
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -32,7 +35,11 @@ const Campaigns = () => {
           <Popup
             trigger={
               <>
-                <Button size={"sm"} className="md:hidden">
+                <Button
+                  size={"sm"}
+                  className="md:hidden"
+                  onClick={() => navigate("123")}
+                >
                   <Plus className="size-4 mr-2" />
                   Campaign
                 </Button>

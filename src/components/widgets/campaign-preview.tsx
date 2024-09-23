@@ -18,11 +18,7 @@ interface CampaignPreviewProps {
 
 const CampaignPreview: React.FC<CampaignPreviewProps> = ({
   image,
-  title,
-  subtitle,
-  liked,
   size = "default",
-  onLike,
   loading,
   className,
 }) => {

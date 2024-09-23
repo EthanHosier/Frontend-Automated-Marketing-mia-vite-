@@ -18,8 +18,8 @@ import useMeasure from "react-use-measure";
 
 const OnboardingBusinessSummaries = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [ref, bounds] = useMeasure();
+  const [direction] = useState(1);
+  const [_, bounds] = useMeasure();
   const [open, setOpen] = useState(true);
 
   const [updatedBusinessSummary, setUpdatedBusinessSummary] =
@@ -142,7 +142,7 @@ const OnboardingBusinessSummaries = () => {
               activeIndex < 5
                 ? () => setActiveIndex((activeIndex) => activeIndex + 1)
                 : async () => {
-                    if (!!updatedBusinessSummary) {
+                    if (updatedBusinessSummary) {
                       updateBusinessSummaries(updatedBusinessSummary);
                     }
                     setOpen(false);

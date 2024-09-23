@@ -15,8 +15,8 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const BusinessSummaries = () => {
-  const { data: businessSummaryData, isLoading: isBusinessSummaryLoading } =
-    useBusinessSummaries();
+  const { data: businessSummaryData } = useBusinessSummaries();
+
   const { mutate: updateBusinessSummaries } = useUpdateBusinessSummaries();
 
   const methods = useForm<BusinessDetailsData>({
@@ -27,11 +27,10 @@ const BusinessSummaries = () => {
 
   const {
     handleSubmit,
-    setError,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting },
   } = methods;
 
-  if (!!businessSummaryData) {
+  if (businessSummaryData) {
     return (
       <Form
         methods={methods}

@@ -4,10 +4,10 @@ import { SocialMediaPlatform } from "@/types/socialMediaPlatforms";
 import { AspectRatio } from "../aspect-ratio";
 import { Skeleton } from "../skeleton";
 import { VStack } from "../vstack";
-import Text from "../text";
 import RoundSocialMediaIcon from "../round-social-media-icon";
 import { HStack } from "../hstack";
 import { cn } from "@/lib/utils";
+import MarkdownPreview from "@uiw/react-markdown-preview";
 
 interface SocialMediaPostProps {
   image: string;
@@ -28,7 +28,7 @@ const SocialMediaPost: React.FC<SocialMediaPostProps> = ({
 }) => {
   return (
     <Blob
-      className={cn("w-[336px] h-[448px] md:w-[432px] md:h-[576px]", className)}
+      className={cn("w-[336px] h-[520px] md:w-[432px] md:h-[576px]", className)}
       padding={1}
     >
       <VStack gap={6}>
@@ -65,16 +65,13 @@ const SocialMediaPost: React.FC<SocialMediaPostProps> = ({
             </VStack>
           </>
         ) : (
-          <Text className="px-2" variant="bold" size="subtitle">
-            {businessName}{" "}
-            <Text
-              variant="light"
-              size="subtitle"
-              className="text-grayscaleText-body !font-normal"
-            >
-              {caption}
-            </Text>
-          </Text>
+          <div className="overflow-auto max-h-[164px] px-2">
+            {" "}
+            <MarkdownPreview
+              source={`<b>${businessName}</b> ` + caption}
+              style={{ display: "inline" }}
+            />
+          </div>
         )}
       </VStack>
     </Blob>

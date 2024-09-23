@@ -35,14 +35,14 @@ const Onboarding = () => {
     if (activeIndex >= 2) setActiveIndex(1);
   }, [activeIndex]);
 
-  const Page1 = React.forwardRef<HTMLFormElement, any>((props, ref) => {
+  const Page1 = React.forwardRef<HTMLFormElement, any>(() => {
     const methods = useForm<BusinessDetailsData>({
       resolver: zodResolver(businessDetailsSchema),
     });
     const {
       handleSubmit,
-      setError,
-      formState: { isSubmitting, errors },
+
+      formState: { isSubmitting },
     } = methods;
 
     return (
@@ -92,7 +92,7 @@ const Onboarding = () => {
 
   Page1.displayName = "Page1";
 
-  const Page2 = React.forwardRef<HTMLDivElement, any>((props, ref) => {
+  const Page2 = React.forwardRef<HTMLDivElement, any>(() => {
     const methods = useForm<WebSiteData>({
       resolver: zodResolver(websiteSchema),
     });

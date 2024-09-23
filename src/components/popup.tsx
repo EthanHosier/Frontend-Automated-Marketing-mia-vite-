@@ -42,7 +42,7 @@ export const Popup: React.FC<PopupProps> = ({
     <>
       {/* Mobile view */}
       <div className={cn("md:hidden", containerStyles)}>
-        <Drawer dismissible={dismissable} open={!!open} onClose={onClose}>
+        <Drawer dismissible={dismissable} open={open} onClose={onClose}>
           {trigger && <DrawerTrigger>{trigger}</DrawerTrigger>}
           <DrawerContent className="gap-4">
             {dismissable && (
@@ -57,7 +57,7 @@ export const Popup: React.FC<PopupProps> = ({
       {/* Desktop view (Dialog) */}
       {isMdOrLarger && (
         <div className={cn("hidden md:block")}>
-          <Dialog open={!!open}>
+          <Dialog open={open}>
             {trigger && <DialogTrigger>{trigger}</DialogTrigger>}
             <DialogContent
               onInteractOutside={(e) => {

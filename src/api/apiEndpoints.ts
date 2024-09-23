@@ -19,6 +19,10 @@ export const apiEndpoints = {
     method: "GET",
     path: `${API_ROUTE_PATH}/business-summaries`,
   },
+  generateCampaign: {
+    method: "POST",
+    path: `${API_ROUTE_PATH}/campaigns`,
+  },
 } satisfies {
   [endpoint: string]: { method: HTTPMethod; path: string };
 };

@@ -10,7 +10,6 @@ import GeneratedCampaign from "./pages/dashboard/campaigns/generated-campaign/Ge
 import { OnboardingLayout } from "./layouts/OnboardingLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
 import EnterUrl from "./pages/onboarding/enter-url";
-import BusinessSummaries from "./pages/onboarding/business-summaries";
 
 export const router = createBrowserRouter([
   {

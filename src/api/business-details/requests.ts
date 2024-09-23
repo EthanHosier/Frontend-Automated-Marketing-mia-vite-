@@ -8,10 +8,7 @@ import {
   updateBusinessSummaries,
 } from "./queries";
 import { useNavigate } from "react-router-dom";
-import {
-  GetBusinessSummariesResponse,
-  UpdateBusinessSummariesData,
-} from "./types";
+import { UpdateBusinessSummariesData } from "./types";
 
 export const useSitemap = () => {
   const { user } = useUser();
@@ -41,7 +38,7 @@ export const useGenerateBusinessSummaries = () => {
   return useMutation({
     mutationFn: generateBusinessSummaries,
     onSuccess: async () => {
-      navigate("/onboarding/business-summaries");
+      navigate("/campaigns?updateBusinessSummaries=true");
       await queryClient.invalidateQueries({
         queryKey: [QueryKey.BusinessSummaries, user?.id],
       });

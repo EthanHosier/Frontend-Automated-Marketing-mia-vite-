@@ -3,14 +3,12 @@ export type GetSitemapResponse = {
 };
 
 export type GetBusinessSummariesResponse = {
-  businessSummaries: {
-    businessName: string;
-    businessSummary: string;
-    brandVoice: string;
-    targetRegion: string;
-    targetAudience: string;
-    colors: string[];
-  };
+  businessName: string;
+  businessSummary: string;
+  brandVoice: string;
+  targetRegion: string;
+  targetAudience: string;
+  colors: string[];
 };
 
 export type GenerateBusinessSummariesResponse = {

@@ -18,7 +18,9 @@ export const getBusinessSummaries = () =>
     .get<GetBusinessSummariesResponse>(
       generatePath(apiEndpoints.getBusinessSummaries.path)
     )
-    .then(({ data }) => data.businessSummaries);
+    .then(({ data }) => {
+      return data;
+    });
 
 export const updateBusinessSummaries = (data: UpdateBusinessSummariesData) =>
   apiClient.patch<any>(

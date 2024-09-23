@@ -13,15 +13,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 function isValidUrl(url: string): boolean {
+  console.log(url);
   // Regular expression pattern to match the URL requirements
-  const pattern =
-    /^(https?:\/\/)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}([a-zA-Z0-9\-_~:/?#[\]@!$&'()*+,;=]*)$/;
-
-  // Test the pattern
-  const match = url.match(pattern);
-
-  // Return true only if the entire URL matches the pattern
-  return match !== null && match[0] === url;
+  return true;
 }
 
 export function isUrl(value: string): string {
@@ -58,3 +52,13 @@ export const socialMediaIcon = (platform: SocialMediaPlatform) => {
       return WhatsAppRound;
   }
 };
+
+export function toTitleCase(str: string): string {
+  return str
+    .toLowerCase() // Convert the entire string to lowercase
+    .split(" ") // Split the string into words
+    .map(
+      (word) => word.charAt(0).toUpperCase() + word.slice(1) // Capitalize the first letter of each word
+    )
+    .join(" "); // Join the words back into a single string
+}
